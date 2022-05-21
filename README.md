@@ -55,3 +55,36 @@ system.assertEquals(gpList.size(), 2);
 
 system.debug(gpList);
 
+	
+	anotyhr example
+--------------------------------------------------------------------->
+	String jsonInput = '{\n' +
+    ' "description" :"An appliance",\n' +
+    ' "accessories" : [ "powerCord", ' +
+      '{ "right":"door handle1", ' +
+        '"left":"door handle2" } ],\n' +
+    ' "dimensions" : ' +
+      '{ "height" : 5.5 , ' +
+        '"width" : 3.0 , ' +
+        '"depth" : 2.2 },\n' +
+    ' "type" : null,\n' +
+    ' "inventory" : 2000,\n' +
+    ' "price" : 1023.45,\n' +
+    ' "isShipped" : true,\n' +
+    ' "modelNumber" : "123"\n' +
+    '}';
+   
+Map<String, Object> m =
+   (Map<String, Object>)
+      JSON.deserializeUntyped(jsonInput);
+system.debug(m);
+
+list<object> x= (list<object>) m.get('accessories');
+system.debug(x);
+map<string,object> ds = (map<string,object>)x[1];
+string s=(string)ds.get('left');
+system.debug(s);
+system.debug(ds);
+
+    system.debug(x);
+	
